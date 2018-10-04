@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MobileSort</string>
+    <string name="BubbleBt">Bubble Sort</string>
+    <string name="QuickBt">Quick Sort</string>
+    <string name="MainLabel">Seleccione el método de ordenamiento que desea observar</string>
+    <string name="title_activity_animation">AnimationActivity</string>
+    <string name="ReturnBt">Volver</string>
+
 </resources>
