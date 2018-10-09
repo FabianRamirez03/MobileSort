@@ -52,6 +52,7 @@ public class sortMethods {
             //After swapping move the iterator on both lists
             if (i <= j)
             {
+                System.out.println(i + j);
                 list.swap (i, j, list);
                 i++;
                 j--;
