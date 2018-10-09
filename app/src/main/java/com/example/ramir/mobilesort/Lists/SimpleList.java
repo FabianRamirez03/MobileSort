@@ -135,8 +135,8 @@ public class SimpleList {
     public Node getByIndex(int i){
         int j = 0;
         Node temp = this.getFirst();
-        while (j != i){
-            temp = temp.next;
+        while (j != i ){
+            temp = temp.getNext();
             j++;
         }
         return temp;
@@ -160,6 +160,7 @@ public class SimpleList {
                 n2Prev.setNext(n1);
                 n2.setNext(n1Next);
                 setFirst(n2);
+                return;
 
             }
             list.setFirst(n2);
