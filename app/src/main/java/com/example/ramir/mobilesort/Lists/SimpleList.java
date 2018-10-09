@@ -154,6 +154,14 @@ public class SimpleList {
         if(i == 0 && j == list.getLarge() -1){
             Node n1 = getByIndex(i);
             Node n2 = getByIndex(j);
+            if (n1.getNext() != n2){
+                Node n1Next = n1.getNext();
+                Node n2Prev = list.getByIndex(j-1);
+                n2Prev.setNext(n1);
+                n2.setNext(n1Next);
+                setFirst(n2);
+
+            }
             list.setFirst(n2);
             n2.setNext(n1);
             n1.setNext(null);
@@ -163,6 +171,15 @@ public class SimpleList {
         if (i == 0){
             Node n1 = getByIndex(i);
             Node n2 = getByIndex(j);
+            Node n1Next = n1.getNext();
+            if (n1Next != n2) {
+                Node n2Prev = getByIndex(j-1);
+                n2Prev.setNext(n1);
+                n1.setNext(n2.getNext());
+                n2.setNext(n1Next);
+                list.setFirst(n2);
+                return;
+            }
             n1.setNext(n2.getNext());
             n2.setNext(n1);
             list.setFirst(n2);
@@ -172,34 +189,39 @@ public class SimpleList {
             Node n1 = getByIndex(i);
             Node n2 = getByIndex(j);
             Node previous = list.getByIndex(i - 1);
+            if (n1.getNext() != n2){
+                Node n1Next = n1.getNext();
+                Node n2Prev = getByIndex(j-1);
+                previous.setNext(n2);
+                n2.setNext(n1Next);
+                n2Prev.setNext(n1);
+                n1.setNext(null);
+                return;
+            }
             previous.setNext(n2);
             n2.setNext(n1);
             n1.setNext(null);
             return;
-        }
-        if ( i != 0 && j != list.getLarge() -1){
-            System.out.println(i);
-            Node beginning = getByIndex(i - 1);
+        } else {
+            Node n1Prev = getByIndex(i - 1);
             Node n1 = getByIndex(i);
             Node n2 = getByIndex(j);
-            Node end = getByIndex(j).getNext();
-            beginning.setNext(n2);
+            Node n2Next = getByIndex(j).getNext();
+            if (n1.getNext() !=  n2){
+                Node n1Next = n1.getNext();
+                Node n2Prev = getByIndex(j-1);
+                n1Prev.setNext(n2);
+                n2.setNext(n1Next);
+                n2Prev.setNext(n1);
+                n1.setNext(n2Next);
+                return;
+            }
+
+
+            n1Prev.setNext(n2);
             n2.setNext(n1);
-            n1.setNext(end);
+            n1.setNext(n2Next);
             return;
         }
-        /*
-        else{
-
-            System.out.println(i);
-            Node beginning = getByIndex(i - 1);
-            Node n1 = getByIndex(i);
-            Node n2 = getByIndex(j);
-            Node end = getByIndex(j).getNext();
-            beginning.setNext(n2);
-            n2.setNext(n1);
-            n1.setNext(end);
-        }
-        */
     }
 }
