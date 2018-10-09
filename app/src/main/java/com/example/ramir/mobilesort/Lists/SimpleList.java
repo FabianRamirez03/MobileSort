@@ -2,10 +2,9 @@ package com.example.ramir.mobilesort.Lists;
 
 /**
  * @author Fabián Ramírez
- * @param <T>
  */
-public class SimpleList<T> {
-    private Node<T> first;
+public class SimpleList {
+    private Node first;
     private int large;
 
     public SimpleList(){
@@ -17,9 +16,9 @@ public class SimpleList<T> {
      * Agrega el elemento al final de la lista
      * @param value elemento a agregar
      */
-    public void addAtEnd(T value){
+    public void addAtEnd(int value){
         if(this.isEmpty()){
-            this.first = new Node<>(value);
+            this.first = new Node(value);
             this.large += 1;
         }
         else{
@@ -27,7 +26,7 @@ public class SimpleList<T> {
             while (temporal.getNext() != null){
                 temporal =  temporal.getNext();
             }
-            temporal.setNext(new Node<>(value));
+            temporal.setNext(new Node(value));
             this.large += 1;
         }
     }
@@ -36,13 +35,13 @@ public class SimpleList<T> {
      * Agrega elemento al inicio de la lista
      * @param value elemento a agregar
      */
-    public void addAtBeginning (T value){
+    public void addAtBeginning (int value){
         if(this.isEmpty()){
-            this.first = new Node<>(value);
+            this.first = new Node(value);
             this.large += 1;
         }
         else{
-            Node tmp = new Node<>(value);
+            Node tmp = new Node(value);
             tmp.setNext(this.first);
             this.first = tmp;
         }
@@ -61,7 +60,7 @@ public class SimpleList<T> {
      * Obtiene el primer elemento de la lista
      * @return primer elemento de la lista
      */
-    public Node<T> getFirst() {
+    public Node getFirst() {
         return first;
     }
 
@@ -133,7 +132,7 @@ public class SimpleList<T> {
      * @param i posición de elemento a obtener
      * @return un elemento de la lista
      */
-    public Node<T> getByIndex(int i){
+    public Node getByIndex(int i){
         int j = 0;
         Node temp = this.getFirst();
         while (j != i){
@@ -144,20 +143,63 @@ public class SimpleList<T> {
     }
 
 
-    public void setFirst(Node<T> first) {
+    public void setFirst(Node first) {
         this.first = first;
     }
 
-    public void setLarge(int large) {
+    private void setLarge(int large) {
         this.large = large;
     }
-    public void swap (int i, int j){
-        Node n1 = getByIndex(i);
-        Node n2 = getByIndex(j);
-        Node end = getByIndex(j).getNext();
-        Node beginning = getByIndex(i - 1);
-        beginning.setNext(n2);
-        n2.setNext(n1);
-        n1.setNext(end);
+    public void swap (int i, int j, SimpleList list){
+        if(i == 0 && j == list.getLarge() -1){
+            Node n1 = getByIndex(i);
+            Node n2 = getByIndex(j);
+            list.setFirst(n2);
+            n2.setNext(n1);
+            n1.setNext(null);
+            return;
+        }
+
+        if (i == 0){
+            Node n1 = getByIndex(i);
+            Node n2 = getByIndex(j);
+            n1.setNext(n2.getNext());
+            n2.setNext(n1);
+            list.setFirst(n2);
+            return;
+        }
+        if (j == list.getLarge() -1){
+            Node n1 = getByIndex(i);
+            Node n2 = getByIndex(j);
+            Node previous = list.getByIndex(i - 1);
+            previous.setNext(n2);
+            n2.setNext(n1);
+            n1.setNext(null);
+            return;
+        }
+        if ( i != 0 && j != list.getLarge() -1){
+            System.out.println(i);
+            Node beginning = getByIndex(i - 1);
+            Node n1 = getByIndex(i);
+            Node n2 = getByIndex(j);
+            Node end = getByIndex(j).getNext();
+            beginning.setNext(n2);
+            n2.setNext(n1);
+            n1.setNext(end);
+            return;
+        }
+        /*
+        else{
+
+            System.out.println(i);
+            Node beginning = getByIndex(i - 1);
+            Node n1 = getByIndex(i);
+            Node n2 = getByIndex(j);
+            Node end = getByIndex(j).getNext();
+            beginning.setNext(n2);
+            n2.setNext(n1);
+            n1.setNext(end);
+        }
+        */
     }
 }

@@ -1,45 +1,14 @@
 package com.example.ramir.mobilesort.Lists;
 
-public class Node<T> {
+public class Node {
 
-    private T value = null;
+    private int value;
 
     /**
      * Punteros
      */
     // Pointers
     Node next = null;
-    Node right = null;
-    Node left = null;
-    Node top;
-    Node bottom;
-    Node top_right;
-    Node top_left;
-    Node bottom_right;
-    Node bottom_left;
-
-    /**
-     * Estado de los punteros
-     */
-    //Pointers State
-    private boolean nextState = false;
-    private boolean rightState = false;
-    private boolean leftState = false;
-    private boolean topState = false;
-    private boolean bottomState = false;
-    private boolean top_rightState = false;
-    private boolean top_leftState = false;
-    private boolean bottom_rightState = false;
-    private boolean bottom_leftState = false;
-
-
-    /**
-     * Almacena las lineas diagonales que se han realizado
-     */
-    private boolean LineTopRight = false;
-    private boolean LineBottomRight = false;
-    private boolean LineBottomLeft = false;
-    private boolean LineTopLeft = false;
 
 
     /**
@@ -47,7 +16,7 @@ public class Node<T> {
      *
      * @param value a type variable
      */
-    public Node(T value) {
+    public Node(int value) {
         this.value = value;
     }
 
@@ -67,12 +36,8 @@ public class Node<T> {
         this.next = next;
     }
 
-    public T getValue() {
+    public int getValue() {
         return value;
-    }
-
-    public Node getRight() {
-        return right;
     }
 }
 
