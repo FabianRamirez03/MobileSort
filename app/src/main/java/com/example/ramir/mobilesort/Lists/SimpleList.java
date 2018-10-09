@@ -144,5 +144,20 @@ public class SimpleList<T> {
     }
 
 
+    public void setFirst(Node<T> first) {
+        this.first = first;
+    }
 
+    public void setLarge(int large) {
+        this.large = large;
+    }
+    public void swap (int i, int j){
+        Node n1 = getByIndex(i);
+        Node n2 = getByIndex(j);
+        Node end = getByIndex(j).getNext();
+        Node beginning = getByIndex(i - 1);
+        beginning.setNext(n2);
+        n2.setNext(n1);
+        n1.setNext(end);
+    }
 }
