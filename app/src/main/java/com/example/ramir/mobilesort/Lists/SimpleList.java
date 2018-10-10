@@ -150,6 +150,7 @@ public class SimpleList {
     private void setLarge(int large) {
         this.large = large;
     }
+
     public void swap (int i, int j, SimpleList list){
         if(i == 0 && j == list.getLarge() -1){
             Node n1 = getByIndex(i);

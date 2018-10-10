@@ -15,10 +15,10 @@ public class VerticalBar {
      * @param height size of the rect in -y
      * @return a Rect object
      */
-    static Rect drawBar(int xPoss, int yPoss, int width, int height){
+    static Rect createBar(int xPoss, int yPoss, int width, int height){
         width += xPoss;
-        height -= yPoss;
-        return new Rect(xPoss, yPoss, width, height);
+        height = yPoss -height;
+        return new Rect(xPoss, height, width, yPoss);
 
     }
 }

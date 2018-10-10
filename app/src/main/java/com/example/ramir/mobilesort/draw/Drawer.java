@@ -10,11 +10,15 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.example.ramir.mobilesort.Lists.SimpleList;
+import com.example.ramir.mobilesort.Sort.SortController;
+
 /**
  * Class that manage the drawing of the VerticalBars
  */
 public class Drawer extends View {
 
+    SortController controller = SortController.init(10);
 
     public Drawer(Context context) {
         super(context);
@@ -42,10 +46,24 @@ public class Drawer extends View {
 
     @Override
     protected void onDraw(Canvas canvas){
-        // Draw a rectangle in the dimensions given
-        Rect rect = VerticalBar.drawBar(10, 10, 100, 100);
         @SuppressLint("DrawAllocation") Paint color = new Paint();
         color.setColor(Color.GREEN);
-        canvas.drawRect(rect, color);
+        draw_bars(canvas, color);
+    }
+
+    private void draw_bars(Canvas canvas, Paint color){
+        int len = controller.getNumList().getLarge();
+        int width = canvas.getWidth();
+        int height = canvas.getHeight();
+        int xOffset = width / len;
+        int xPoss =  50;
+        int yPoss =  height - 20;
+
+        for (int i = 0; i < len; i++){
+            Rect rect = VerticalBar.createBar(xPoss, yPoss, 20, 200);
+            xPoss += xOffset;
+            //controller.getBarsList().addAtEnd(rect);
+            canvas.drawRect(rect, color);
+        }
     }
 }
