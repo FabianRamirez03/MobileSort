@@ -147,9 +147,7 @@ public class SimpleList {
         this.first = first;
     }
 
-    private void setLarge(int large) {
-        this.large = large;
-    }
+
     public void swap (int i, int j, SimpleList list){
         if (i != j) {
             if(i == 0 && j == list.getLarge() -1){
@@ -227,4 +225,39 @@ public class SimpleList {
             }
         }
     }
+
+    public void addUnique(int value){
+        if (!isRepeated(value, this)) {
+            if(this.isEmpty()){
+                this.first = new Node(value);
+                this.large += 1;
+            }
+            else{
+                Node temporal = this.first;
+                while (temporal.getNext() != null){
+                    temporal =  temporal.getNext();
+                }
+                temporal.setNext(new Node(value));
+                this.large += 1;
+            }
+        }else{
+            System.out.print("is repeated");
+        }
+
+    }
+
+    private boolean isRepeated(int value, SimpleList list){
+        int i = 0;
+        int j = list.getLarge();
+        boolean result = false;
+        while (i < j){
+            if(value == list.getByIndex(i).getValue()){
+                result = true;
+                break;
+            }
+            i++;
+        }
+        return result;
+    }
+
 }
