@@ -5,18 +5,28 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.ramir.mobilesort.Sort.SortController;
 import com.example.ramir.mobilesort.draw.Drawer;
 
 public class BubbleSortActivity extends AppCompatActivity {
+
+    private Drawer drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bubble_sort);
-        new Drawer(this); // Setups the Drawer for the bars
+        drawer = new Drawer(this); // Setups the Drawer for the bars
     }
     public void goBack(View view){
         Intent goBack = new Intent(this, MainActivity.class);
         startActivity(goBack);
+    }
+    public void unSort(View view){
+        SortController controller = SortController.getInstance();
+        controller.unSortList(controller.getNumList());
+    }
+    public void Sort(View view){
+
     }
 }

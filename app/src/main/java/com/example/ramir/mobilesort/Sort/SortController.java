@@ -33,12 +33,12 @@ public class SortController {
         }
     }
 
-    private void unsortNums(SimpleList list){
+    public void unSortList(SimpleList list){
         int i;
-        int n = list.getLarge();
+        int n = list.getLarge()-1;
         for(i = 0; i < n; i++) {
             int j = new Random().nextInt(n);
-            list.swap(i, j, list);
+            list.swap2(i, j, list);
         }
     }
 
@@ -50,8 +50,10 @@ public class SortController {
         return numList;
     }
 
-    public void setNumList(SimpleList numList) {
-        this.numList = numList;
+    public void setNumListLen(int listSize) {
+        this.listSize = listSize;
+        this.numList = new SimpleList();
+        createNumList();
     }
 
     public SimpleList getBarsList() {

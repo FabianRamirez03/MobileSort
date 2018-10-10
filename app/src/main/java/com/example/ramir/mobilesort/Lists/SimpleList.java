@@ -225,4 +225,13 @@ public class SimpleList {
             return;
         }
     }
+
+    public void swap2 (int i, int j, SimpleList list){
+        Node node1 = list.getByIndex(i);
+        Node node2 = list.getByIndex(j);
+
+        int tmp = node1.getValue();
+        node1.setValue(node2.getValue());
+        node2.setValue(tmp);
+    }
 }

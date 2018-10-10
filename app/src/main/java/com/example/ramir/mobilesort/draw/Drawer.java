@@ -18,7 +18,9 @@ import com.example.ramir.mobilesort.Sort.SortController;
  */
 public class Drawer extends View {
 
-    SortController controller = SortController.getInstance();
+    private SortController controller = SortController.getInstance();
+    private Paint color;
+    private Canvas canvas;
 
     public Drawer(Context context) {
         super(context);
@@ -48,6 +50,12 @@ public class Drawer extends View {
     protected void onDraw(Canvas canvas){
         @SuppressLint("DrawAllocation") Paint color = new Paint();
         color.setColor(Color.GREEN);
+        this.canvas = canvas;
+        this.color = color;
+        draw_bars();
+    }
+
+    public void draw_bars(){
         draw_bars(canvas, color);
     }
 
