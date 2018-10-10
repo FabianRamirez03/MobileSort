@@ -5,5 +5,7 @@
     <string name="MainLabel">Seleccione el método de ordenamiento que desea observar</string>
     <string name="title_activity_animation">AnimationActivity</string>
     <string name="ReturnBt">Volver</string>
+    <string name="Sort">Sort</string>
+    <string name="UnSort">UnSort</string>
 
 </resources>

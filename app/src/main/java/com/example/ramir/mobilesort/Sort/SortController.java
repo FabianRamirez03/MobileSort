@@ -5,6 +5,7 @@ import java.util.Random;
 
 public class SortController {
 
+    private int maxNum = 30;
     private static SortController instance;
     private SimpleList numList;
     private SimpleList barsList;
@@ -17,18 +18,17 @@ public class SortController {
         createNumList();
     }
 
-    public static SortController init(int listSize){
+    public static void init(int listSize){
         if (instance == null){
             instance = new SortController(listSize);
         }
-        return instance;
     }
 
     private void createNumList(){
         int i;
         int n = listSize;
         for ( i = 0; i < n; i++){
-            int j = new Random().nextInt(100);
+            int j = new Random().nextInt(maxNum);
             numList.addAtEnd(j);
         }
     }
@@ -40,6 +40,10 @@ public class SortController {
             int j = new Random().nextInt(n);
             list.swap(i, j, list);
         }
+    }
+
+    public static SortController getInstance() {
+        return instance;
     }
 
     public SimpleList getNumList() {
@@ -56,5 +60,13 @@ public class SortController {
 
     public void setBarsList(SimpleList barsList) {
         this.barsList = barsList;
+    }
+
+    public int getMaxNum() {
+        return maxNum;
+    }
+
+    public void setMaxNum(int maxNum) {
+        this.maxNum = maxNum;
     }
 }

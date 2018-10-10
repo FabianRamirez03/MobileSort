@@ -18,7 +18,7 @@ import com.example.ramir.mobilesort.Sort.SortController;
  */
 public class Drawer extends View {
 
-    SortController controller = SortController.init(10);
+    SortController controller = SortController.getInstance();
 
     public Drawer(Context context) {
         super(context);
@@ -52,7 +52,8 @@ public class Drawer extends View {
     }
 
     private void draw_bars(Canvas canvas, Paint color){
-        int len = controller.getNumList().getLarge();
+        SimpleList numList = controller.getNumList();
+        int len = numList.getLarge();
         int width = canvas.getWidth();
         int height = canvas.getHeight();
         int xOffset = width / len;
@@ -60,7 +61,8 @@ public class Drawer extends View {
         int yPoss =  height - 20;
 
         for (int i = 0; i < len; i++){
-            Rect rect = VerticalBar.createBar(xPoss, yPoss, 20, 200);
+            int rectHeight = numList.getByIndex(i).getValue() * height / controller.getMaxNum();
+            Rect rect = VerticalBar.createBar(xPoss, yPoss, 20, rectHeight);
             xPoss += xOffset;
             //controller.getBarsList().addAtEnd(rect);
             canvas.drawRect(rect, color);

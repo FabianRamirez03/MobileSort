@@ -1,19 +1,20 @@
 package com.example.ramir.mobilesort;
 
 import android.content.Intent;
-import android.media.tv.TvView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
-public class AnimationActivity extends AppCompatActivity {
+import com.example.ramir.mobilesort.draw.Drawer;
+
+public class QuickSortActivity extends AppCompatActivity {
 
     private static String method;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_animation);
+        setContentView(R.layout.activity_quick_sort);
+        new Drawer(this); // Setups the Drawer for the bars
     }
 
     public void goBack(View view){
@@ -22,7 +23,7 @@ public class AnimationActivity extends AppCompatActivity {
     }
 
     public static void setMethod(String method) {
-        AnimationActivity.method = method;
+        QuickSortActivity.method = method;
     }
 
 
