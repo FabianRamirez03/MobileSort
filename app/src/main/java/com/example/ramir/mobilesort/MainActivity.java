@@ -12,7 +12,6 @@ import com.example.ramir.mobilesort.Sort.SortController;
 
 public class MainActivity extends AppCompatActivity {
     private TextView textView;
-    private ProgressBar progressBar;
     private SeekBar seekBar;
 
     @Override
@@ -21,15 +20,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         SortController.init(10);
         textView = (TextView) findViewById(R.id.textView4);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
         seekBar = (SeekBar) findViewById(R.id.seekBar);
         seekBar.setMax(30);
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                progressBar.setProgress(progress + 5);
                 textView.setText("" + progress);
+                SortController.setNumListLen(progress);
             }
 
             @Override
