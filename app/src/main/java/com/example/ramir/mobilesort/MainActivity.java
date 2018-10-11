@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.textView4);
         seekBar = (SeekBar) findViewById(R.id.seekBar);
         seekBar.setMax(30);
-
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
