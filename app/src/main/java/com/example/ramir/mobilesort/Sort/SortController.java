@@ -5,11 +5,11 @@ import java.util.Random;
 
 public class SortController {
 
-    private int maxNum = 30;
+    private static int maxNum = 30;
     private static SortController instance;
-    private SimpleList numList;
+    private static SimpleList numList;
     private SimpleList barsList;
-    private int listSize;
+    private static int listSize;
 
     private SortController(int listSize){
         this.listSize = listSize;
@@ -24,7 +24,7 @@ public class SortController {
         }
     }
 
-    private void createNumList(){
+    private static void createNumList(){
         int i;
         int n = listSize;
         for ( i = 0; i < n; i++){
@@ -50,9 +50,9 @@ public class SortController {
         return numList;
     }
 
-    public void setNumListLen(int listSize) {
-        this.listSize = listSize;
-        this.numList = new SimpleList();
+    public static void setNumListLen(int listSize) {
+        listSize = listSize;
+        numList = new SimpleList();
         createNumList();
     }
 
