@@ -1,27 +1,27 @@
 package com.example.ramir.mobilesort.Lists;
 
-public class genericNode<T> {
+public class GenericNode<T> {
 
     private T value = null;
-    private genericNode next = null;
+    private GenericNode next = null;
 
 
 
-    public genericNode(T value){
+    public GenericNode(T value){
         this.value = value;
     }
 
     // @Overload
-    public genericNode(){
+    public GenericNode(){
     }
 
 
 
-    public genericNode getNext() {
+    public GenericNode getNext() {
         return next;
     }
 
-    public void setNext(genericNode next) {
+    public void setNext(GenericNode next) {
         this.next = next;
     }
 

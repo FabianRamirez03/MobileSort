@@ -1,20 +1,22 @@
 package com.example.ramir.mobilesort.Sort;
 
 import com.example.ramir.mobilesort.Lists.SimpleList;
+import com.example.ramir.mobilesort.Lists.GenericList;
+
 import java.util.Random;
 
 public class SortController {
 
-    private static int maxNum = 30;
+    private int maxNum = 30;
     private static SortController instance;
-    private static SimpleList numList;
-    private SimpleList barsList;
-    private static int listSize;
+    private SimpleList numList;
+    private GenericList barsList;
+    private int listSize;
 
     private SortController(int listSize){
         this.listSize = listSize;
         numList = new SimpleList();
-        barsList = new SimpleList();
+        barsList = new GenericList();
         createNumList();
     }
 
@@ -24,7 +26,7 @@ public class SortController {
         }
     }
 
-    private static void createNumList(){
+    private void createNumList(){
         int i;
         int n = listSize;
         for ( i = 0; i < n; i++){
@@ -50,17 +52,17 @@ public class SortController {
         return numList;
     }
 
-    public static void setNumListLen(int listSize) {
-        listSize = listSize;
+    public void setNumListLen(int listSize) {
+        this.listSize = listSize;
         numList = new SimpleList();
         createNumList();
     }
 
-    public SimpleList getBarsList() {
+    public GenericList getBarsList() {
         return barsList;
     }
 
-    public void setBarsList(SimpleList barsList) {
+    public void setBarsList(GenericList barsList) {
         this.barsList = barsList;
     }
 

@@ -1,10 +1,10 @@
 package com.example.ramir.mobilesort.Lists;
 
-public class genericList<T> {
-    private genericNode<T> first;
+public class GenericList<T> {
+    private GenericNode<T> first;
     private int large;
 
-    public genericList(){
+    public GenericList(){
         this.first = null;
         this.large = 0;
     }
@@ -15,15 +15,15 @@ public class genericList<T> {
      */
     public void addAtEnd(T value){
         if(this.isEmpty()){
-            this.first = new genericNode<>(value);
+            this.first = new GenericNode<>(value);
             this.large += 1;
         }
         else{
-            genericNode temporal = this.first;
+            GenericNode temporal = this.first;
             while (temporal.getNext() != null){
                 temporal =  temporal.getNext();
             }
-            temporal.setNext(new genericNode(value));
+            temporal.setNext(new GenericNode(value));
             this.large += 1;
         }
     }
@@ -34,11 +34,11 @@ public class genericList<T> {
      */
     public void addAtBeginning (T value){
         if(this.isEmpty()){
-            this.first = new genericNode<>(value);
+            this.first = new GenericNode<>(value);
             this.large += 1;
         }
         else{
-            genericNode tmp = new genericNode<>(value);
+            GenericNode tmp = new GenericNode<>(value);
             tmp.setNext(this.first);
             this.first = tmp;
         }
@@ -49,7 +49,7 @@ public class genericList<T> {
      * @return boolean
      */
     public boolean isEmpty(){
-        genericNode next = this.getFirst();
+        GenericNode next = this.getFirst();
         return next == null;
     }
 
@@ -57,7 +57,7 @@ public class genericList<T> {
      * Obtiene el primer elemento de la lista
      * @return primer elemento de la lista
      */
-    public genericNode<T> getFirst() {
+    public GenericNode<T> getFirst() {
         return first;
     }
 
@@ -87,7 +87,7 @@ public class genericList<T> {
      * Imprime los elementos de la lista
      */
     public void showList(){
-        genericNode temporal = this.first;
+        GenericNode temporal = this.first;
         while (temporal != null){
             System.out.println(temporal.getValue());
             temporal = temporal.getNext();
@@ -101,7 +101,7 @@ public class genericList<T> {
     public void delete(int index){
         if (index < this.getLarge()){
             int i = 0;
-            genericNode temporal = this.first;
+            GenericNode temporal = this.first;
             if (index == 0){
                 this.first = this.getByIndex(1);
             }
@@ -129,9 +129,9 @@ public class genericList<T> {
      * @param i posición de elemento a obtener
      * @return un elemento de la lista
      */
-    public genericNode<T> getByIndex(int i){
+    public GenericNode<T> getByIndex(int i){
         int j = 0;
-        genericNode temp = this.getFirst();
+        GenericNode temp = this.getFirst();
         while (j != i){
             temp = temp.getNext();
             j++;

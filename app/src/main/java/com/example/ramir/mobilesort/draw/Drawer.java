@@ -72,7 +72,7 @@ public class Drawer extends View {
             int rectHeight = numList.getByIndex(i).getValue() * height / controller.getMaxNum();
             Rect rect = VerticalBar.createBar(xPoss, yPoss, 20, rectHeight);
             xPoss += xOffset;
-            //controller.getBarsList().addAtEnd(rect);
+            controller.getBarsList().addAtEnd(rect);
             canvas.drawRect(rect, color);
         }
     }
