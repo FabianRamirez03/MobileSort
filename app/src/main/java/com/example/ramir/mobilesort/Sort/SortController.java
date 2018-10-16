@@ -40,7 +40,7 @@ public class SortController {
         int n = list.getLarge()-1;
         for(i = 0; i < n; i++) {
             int j = new Random().nextInt(n);
-            list.swap2(i, j, list);
+            list.swap(i, j, list);
         }
     }
 

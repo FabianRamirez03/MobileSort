@@ -139,7 +139,7 @@ public class GenericList<T> {
         return temp;
     }
 
-    public void swap2 (int i, int j, SimpleList list){
+    public void swap(int i, int j, SimpleList list){
         Node node1 = list.getByIndex(i);
         Node node2 = list.getByIndex(j);
 
