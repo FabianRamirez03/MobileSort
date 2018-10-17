@@ -27,11 +27,12 @@ public class SortController {
     }
 
     private void createNumList(){
-        int i;
+        int i = 0;
         int n = listSize;
-        for ( i = 0; i < n; i++){
+        while (i < n){
             int j = new Random().nextInt(maxNum);
-            numList.addAtEnd(j);
+            numList.addUnique(j);
+            i = numList.getLarge();
         }
     }
 

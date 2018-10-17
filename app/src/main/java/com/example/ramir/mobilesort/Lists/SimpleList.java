@@ -157,7 +157,7 @@ public class SimpleList {
     }
 
     public void addUnique(int value){
-        if (!isRepeated(value, this)) {
+        if (value != 0 && !isRepeated(value, this)) {
             if(this.isEmpty()){
                 this.first = new Node(value);
                 this.large += 1;
