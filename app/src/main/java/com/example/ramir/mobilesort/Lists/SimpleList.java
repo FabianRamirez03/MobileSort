@@ -1,5 +1,7 @@
 package com.example.ramir.mobilesort.Lists;
 
+import com.example.ramir.mobilesort.Animations.RectAnimation;
+
 /**
  * @author Fabián Ramírez
  */
@@ -151,6 +153,7 @@ public class SimpleList {
         Node node1 = list.getByIndex(i);
         Node node2 = list.getByIndex(j);
 
+        RectAnimation.animate(i, j);
         int tmp = node1.getValue();
         node1.setValue(node2.getValue());
         node2.setValue(tmp);
