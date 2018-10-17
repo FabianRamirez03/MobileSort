@@ -8,7 +8,6 @@
     <string name="Sort">Sort</string>
     <string name="UnSort">UnSort</string>
     <string name="_10">10</string>
-    <string name="defina_la_extension_de_la_lista">Defina la extensión de la lista.</string>
+    <string name="defina_la_extensi_n_de_la_lista">Defina la extensión de la lista.</string>
     <string name="escoja_el_tipo_de_ordenamiento">Escoja el tipo de ordenamiento.</string>
-
 </resources>
