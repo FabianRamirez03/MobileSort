@@ -27,9 +27,13 @@ public class BubbleSortActivity extends AppCompatActivity {
     public void unSort(View view){
         SortController controller = SortController.getInstance();
         controller.unSortList(controller.getNumList());
+        drawer.invalidate();
+        setContentView(R.layout.activity_bubble_sort);
     }
     public void Sort(View view){
         SimpleList numList = SortController.getInstance().getNumList();
         sortMethods.bubbleSort(numList);
+        drawer.invalidate();
+        setContentView(R.layout.activity_bubble_sort);
     }
 }

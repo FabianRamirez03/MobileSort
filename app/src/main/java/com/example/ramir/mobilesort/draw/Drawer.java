@@ -55,7 +55,7 @@ public class Drawer extends View {
         draw_bars();
     }
 
-    public void draw_bars(){
+    private void draw_bars(){
         draw_bars(canvas, color);
     }
 
