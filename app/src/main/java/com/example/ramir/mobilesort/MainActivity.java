@@ -19,10 +19,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         SortController.init(10);
-        textView = (TextView) findViewById(R.id.textView4);
-        seekBar = (SeekBar) findViewById(R.id.seekBar);
-        seekBar.setMax(30);
+        textView = findViewById(R.id.textView4);
+        seekBar = findViewById(R.id.seekBar);
         seekBar.setMin(10);
+        seekBar.setMax(30);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @SuppressLint("SetTextI18n")
             @Override

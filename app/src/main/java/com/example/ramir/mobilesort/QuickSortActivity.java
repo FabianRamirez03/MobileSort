@@ -7,16 +7,18 @@ import android.view.View;
 
 import com.example.ramir.mobilesort.Lists.SimpleList;
 import com.example.ramir.mobilesort.Sort.SortController;
+import com.example.ramir.mobilesort.Sort.sortMethods;
 import com.example.ramir.mobilesort.draw.Drawer;
 
 public class QuickSortActivity extends AppCompatActivity {
 
-    private static String method;
+    private Drawer drawer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quick_sort);
-        new Drawer(this); // Setups the Drawer for the bars
+        drawer = findViewById(R.id.drawer);  // Setups the Drawer for the bars
     }
 
     public void goBack(View view){
@@ -26,10 +28,12 @@ public class QuickSortActivity extends AppCompatActivity {
 
     public void unSort(View view){
         SortController controller = SortController.getInstance();
+        drawer.invalidate();
         controller.unSortList(controller.getNumList());
     }
     public void Sort(View view){
         SimpleList numList = SortController.getInstance().getNumList();
-        //sortMethods.quickSort(numList);
+        sortMethods.quickSort(numList);
+        drawer.invalidate();
     }
 }

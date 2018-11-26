@@ -18,7 +18,7 @@ public class BubbleSortActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bubble_sort);
-        drawer = new Drawer(this); // Setups the Drawer for the bars
+        drawer = findViewById(R.id.drawer);  // Setups the Drawer for the bars
     }
     public void goBack(View view){
         Intent goBack = new Intent(this, MainActivity.class);
@@ -28,12 +28,10 @@ public class BubbleSortActivity extends AppCompatActivity {
         SortController controller = SortController.getInstance();
         controller.unSortList(controller.getNumList());
         drawer.invalidate();
-        setContentView(R.layout.activity_bubble_sort);
     }
     public void Sort(View view){
         SimpleList numList = SortController.getInstance().getNumList();
         sortMethods.bubbleSort(numList);
         drawer.invalidate();
-        setContentView(R.layout.activity_bubble_sort);
     }
 }

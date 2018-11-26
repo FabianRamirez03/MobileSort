@@ -19,7 +19,11 @@ public class sortMethods {
         }
     }
 
-    public static void quickSort(SimpleList list, int low, int high){
+    public static void quickSort(SimpleList list) {
+        quickSort(list, 0, list.getLarge()-1);
+    }
+
+    private static void quickSort(SimpleList list, int low, int high){
 
 
 
